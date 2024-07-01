@@ -23,6 +23,7 @@ class _Screen2State extends State<Screen2> {
               Stack(
                 children: [
                   Container(
+                    height: 450.h,
                     color: Colors.orange,
                     child: CarouselSlider.builder(
                         itemCount: 15,
@@ -52,151 +53,220 @@ class _Screen2State extends State<Screen2> {
                         )),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(top: 329,left: 45),
+                    padding: const EdgeInsets.only(top: 430, left: 45),
                     child: Container(
                       width: 300.w,
                       height: 57.h,
-                      decoration: ShapeDecoration(shadows: [  BoxShadow(
-                        color:Colors.black12,
-                        offset: const Offset(
-                          5.0,
-                          5.0,
-                        ),
-                        blurRadius: 10.0,
-                        spreadRadius: 2.0,
-                      ),],
+                      decoration: ShapeDecoration(
+                          shadows: [
+                            BoxShadow(
+                              color: Colors.black12,
+                              offset: const Offset(
+                                5.0,
+                                5.0,
+                              ),
+                              blurRadius: 10.0.r,
+                              spreadRadius: 2.0.r,
+                            ),
+                          ],
                           color: Colors.white,
                           shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10))),
-                   child:   Padding(
-                     padding: const EdgeInsets.only(left: 15),
-                     child: Row(
-                       children: [
-                         Container(
-                           width: 58.w,
-                           height: 26.h,
-                           decoration: ShapeDecoration(
-                               color: Color(0xFFFFF8DF),
-                               shape: RoundedRectangleBorder(
-                                   borderRadius:
-                                   BorderRadius.circular(8))),
-                           child: Padding(
-                             padding: const EdgeInsets.only(left: 3),
-                             child: Row(
-                               children: [
-                                 RatingBar(
-                                   filledIcon: Icons.star,size: 22,
-                                   emptyIcon: Icons.star_border,
-                                   onRatingChanged: (value) => debugPrint('$value'),
-                                   initialRating: 1,
-                                   maxRating: 1,
-                                 ),
-                                 SizedBox(width: 2.w,),
-                                 Padding(
-                                   padding: const EdgeInsets.only(top: 1),
-                                   child: Text(
-                                     '4.8',
-                                     style: GoogleFonts.inter(
-                                         textStyle: TextStyle(
-                                           color: Colors.black,
-                                           fontSize: 17.sp,
-                                           fontWeight: FontWeight.w500,
-                                         )
-                                     ),
-                                   ),
-                                 )
-                               ],
-                             ),
-                           ),
-                         ),
-                         SizedBox(width: 31.w,),
-                         Container(
-                           width: 70.w,
-                           height: 26.h,
-                           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-                           decoration: ShapeDecoration(
-                             color: Color(0xFFE2FBFA),
-                             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-                           ),
-                           child: Center(
-                             child: Text(
-                               'Fantasy',
-                               style: GoogleFonts.inter(
-                                 textStyle: TextStyle(
-                                 color: Color(0xFF153337),
-                                 fontSize: 15.sp,
-                                 fontWeight: FontWeight.w500,
-                                 ),
-                               ),
-                             ),
-                           ),
-                         ),
-                         SizedBox(width: 29.w,),
-                         Container(
-                           width: 82.w,
-                           height: 26.h,
-                           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
-                           decoration: ShapeDecoration(
-                             color: Colors.white,
-                             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-                           ),
-                           child: Row(
-                             children: [
-                               Text(
-                                 '432',
-                             style: GoogleFonts.inter(
-                               textStyle: TextStyle(
-                                   color: Color(0xFF153337),
-                                   fontSize: 15.sp,
-                                   fontWeight: FontWeight.w600,
-                                 ),)
-                               ),
-
-                               Text(
-                                 'Pages',
-                                 style: GoogleFonts.inter(
-                                   textStyle: TextStyle(
-                                   color: Color(0xFF153337),
-                                   fontSize: 15.sp,
-                                   fontWeight: FontWeight.w300,
-                                   ),
-                                 ),
-                               ),
-                             ],
-                           ),
-                         )
-                       ],
-                     ),
-                   ),
+                              borderRadius: BorderRadius.circular(10.r))),
+                      child: Padding(
+                        padding: const EdgeInsets.only(left: 15),
+                        child: Row(
+                          children: [
+                            Container(
+                              width: 58.w,
+                              height: 26.h,
+                              decoration: ShapeDecoration(
+                                  color: Color(0xFFFFF8DF),
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(8))),
+                              child: Padding(
+                                padding: const EdgeInsets.only(left: 3),
+                                child: Row(
+                                  children: [
+                                    RatingBar(
+                                      filledIcon: Icons.star,
+                                      size: 22,
+                                      emptyIcon: Icons.star_border,
+                                      onRatingChanged: (value) =>
+                                          debugPrint('$value'),
+                                      initialRating: 1,
+                                      maxRating: 1,
+                                    ),
+                                    SizedBox(
+                                      width: 2.w,
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 1),
+                                      child: Text(
+                                        '4.8',
+                                        style: GoogleFonts.inter(
+                                            textStyle: TextStyle(
+                                          color: Colors.black,
+                                          fontSize: 17.sp,
+                                          fontWeight: FontWeight.w500,
+                                        )),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              width: 31.w,
+                            ),
+                            Container(
+                              width: 70.w,
+                              height: 26.h,
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 10, vertical: 4),
+                              decoration: ShapeDecoration(
+                                color: Color(0xFFE2FBFA),
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(8)),
+                              ),
+                              child: Center(
+                                child: Text(
+                                  'Fantasy',
+                                  style: GoogleFonts.inter(
+                                    textStyle: TextStyle(
+                                      color: Color(0xFF153337),
+                                      fontSize: 15.sp,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              width: 29.w,
+                            ),
+                            Container(
+                              width: 82.w,
+                              height: 26.h,
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 10, vertical: 4),
+                              decoration: ShapeDecoration(
+                                color: Colors.white,
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(8)),
+                              ),
+                              child: Row(
+                                children: [
+                                  Text('432',
+                                      style: GoogleFonts.inter(
+                                        textStyle: TextStyle(
+                                          color: Color(0xFF153337),
+                                          fontSize: 15.sp,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                      )),
+                                  Text(
+                                    'Pages',
+                                    style: GoogleFonts.inter(
+                                      textStyle: TextStyle(
+                                        color: Color(0xFF153337),
+                                        fontSize: 15.sp,
+                                        fontWeight: FontWeight.w300,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 140, top: 5),
+                    child: Column(
+                      children: [
+                        Text(
+                          "bookname",
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 28.sp,
+                              fontWeight: FontWeight.w600),
+                        ),
+                        Text(
+                          "bookname",
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 17.sp,
+                              fontWeight: FontWeight.w200),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 10, top: 10),
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).pop();
+                      },
+                      child: CircleAvatar(
+                        radius: 16.r,
+                        backgroundColor: Colors.black,
+                        child: CircleAvatar(
+                          radius: 15,
+                          backgroundColor: Colors.white,
+                          child: Icon(
+                            Icons.arrow_back,
+                            color: Colors.black,
+                            size: 20,
+                          ),
+                        ),
+                      ),
                     ),
                   )
+                  // Icon(Icons.navigate_before)
                 ],
               ),
               Padding(
-                padding: const EdgeInsets.only(right: 270,top: 25),
+                padding: const EdgeInsets.only(right: 270, top: 25),
                 child: Text(
                   'Synopsis',
                   style: GoogleFonts.playfairDisplay(
                     textStyle: TextStyle(
-                    color: Colors.black,
-                    fontSize: 28.sp,
-                    fontWeight: FontWeight.w600,
-                  ),),
+                      color: Colors.black,
+                      fontSize: 28.sp,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
                 ),
               ),
-              SizedBox(height: 30.h,),
+              SizedBox(
+                height: 30.h,
+              ),
               SizedBox(
                 width: 369.w,
                 child: Text(
                   'Elspeth needs a monster. The monster might be her. Elspeth Spindle needs more than luck to stay safe in the eerie, mist-locked kingdom of Blunder—she needs a monster. She calls him the Nightmare, an ancient, mercurial spirit trapped in her head. He protects her. He keeps her secrets.\n \nBut nothing comes for free, especially magic. When Elspeth meets a mysterious highwayman on the forest road, her life takes a drastic turn. Thrust into a world of shadow and deception, she joins a dangerous quest to cure Blunder from the dark magic infecting it. And the highwayman? He just so happens to be the King’s nephew, Captain of the most dangerous men in Blunder…and guilty of high treason.\n\nTogether they must gather twelve Providence Cards—the keys to the cure. But as the stakes heighten and their undeniable attraction intensifies, Elspeth is forced to face her darkest secret yet: the Nightmare is slowly taking over her mind. And she might not be able to stop him.',
                   style: GoogleFonts.inter(
                     textStyle: TextStyle(
-                    color: Colors.black,
-                    fontSize: 19,
-                    fontWeight: FontWeight.w400,
-                    height: 1.5,
+                      color: Colors.black,
+                      fontSize: 19.sp,
+                      fontWeight: FontWeight.w400,
+                      height: 1.5.h,
+                    ),
                   ),
-                ),),
+                ),
+              ),
+              Container(
+                width: 450.w,
+                height: 100.h,
+                decoration: ShapeDecoration(
+                    color: Colors.black,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.only(
+                            topRight: Radius.circular(10.r),
+                            topLeft: Radius.circular(10.r)))),
+                child: CircleAvatar(radius: 9.r,),
               )
             ],
           ),
