@@ -40,6 +40,7 @@ dependencies:
   flutter_pannable_rating_bar: ^2.7.2+1
   custom_rating_bar: ^2.0.5
   carousel_slider: ^4.2.1
+  flutter_bloc: ^8.1.6
 
 dev_dependencies:
   flutter_test:

@@ -1,24 +1,33 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:custom_rating_bar/custom_rating_bar.dart';
+import 'package:ebooks/Repostory/ModelClass/EBookModel.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import '../Bloc/ebook_bloc.dart';
+
 class Screen2 extends StatefulWidget {
-  const Screen2({super.key});
+  final  String image;
+  final String text;
+  final String writer;
+  final String description;
+  const Screen2({super.key, required this.image, required this.text, required this.writer, required this.description, });
 
   @override
   State<Screen2> createState() => _Screen2State();
 }
 
 class _Screen2State extends State<Screen2> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
         child: SingleChildScrollView(
-          child: Column(
+    child:  Column(
             children: [
               Stack(
                 children: [
@@ -26,17 +35,17 @@ class _Screen2State extends State<Screen2> {
                     height: 450.h,
                     color: Colors.orange,
                     child: CarouselSlider.builder(
-                        itemCount: 15,
+                        itemCount: widget.image.length,
                         itemBuilder: (BuildContext context, int itemIndex,
                                 int pageViewIndex) =>
                             Container(
-                              child: Image.asset(
-                                "assets/a.png",
+                              child: Image.network(
+                               widget.image.toString(),
                                 fit: BoxFit.cover,
                               ),
                             ),
                         options: CarouselOptions(
-                          height: 350.h,
+                          height: 320.h,
                           aspectRatio: 16 / 9,
                           viewportFraction: 1,
                           initialPage: 0,
@@ -126,7 +135,7 @@ class _Screen2State extends State<Screen2> {
                               decoration: ShapeDecoration(
                                 color: Color(0xFFE2FBFA),
                                 shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(8)),
+                                    borderRadius: BorderRadius.circular(8.r)),
                               ),
                               child: Center(
                                 child: Text(
@@ -183,26 +192,31 @@ class _Screen2State extends State<Screen2> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(left: 140, top: 5),
-                    child: Column(
-                      children: [
-                        Text(
-                          "bookname",
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 28.sp,
-                              fontWeight: FontWeight.w600),
-                        ),
-                        Text(
-                          "bookname",
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 17.sp,
-                              fontWeight: FontWeight.w200),
-                        ),
-                      ],
-                    ),
+                    padding: const EdgeInsets.only(left: 50,top: 15),
+                    child: Container(width: 300.w,height: 50.h,
+                    child: Padding(
+                      padding: const EdgeInsets.only( top: 5),
+                      child: Column(
+                        children: [
+                          Text(
+                            widget.text,
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 20.sp,
+                                fontWeight: FontWeight.w600),
+                          ),
+                          Text(
+                           widget.writer,
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 17.sp,
+                                fontWeight: FontWeight.w300),
+                          ),
+                        ],
+                      ),
+                    ),),
                   ),
+
                   Padding(
                     padding: const EdgeInsets.only(left: 10, top: 10),
                     child: GestureDetector(
@@ -213,7 +227,7 @@ class _Screen2State extends State<Screen2> {
                         radius: 16.r,
                         backgroundColor: Colors.black,
                         child: CircleAvatar(
-                          radius: 15,
+                          radius: 15.r,
                           backgroundColor: Colors.white,
                           child: Icon(
                             Icons.arrow_back,
@@ -245,8 +259,7 @@ class _Screen2State extends State<Screen2> {
               ),
               SizedBox(
                 width: 369.w,
-                child: Text(
-                  'Elspeth needs a monster. The monster might be her. Elspeth Spindle needs more than luck to stay safe in the eerie, mist-locked kingdom of Blunder—she needs a monster. She calls him the Nightmare, an ancient, mercurial spirit trapped in her head. He protects her. He keeps her secrets.\n \nBut nothing comes for free, especially magic. When Elspeth meets a mysterious highwayman on the forest road, her life takes a drastic turn. Thrust into a world of shadow and deception, she joins a dangerous quest to cure Blunder from the dark magic infecting it. And the highwayman? He just so happens to be the King’s nephew, Captain of the most dangerous men in Blunder…and guilty of high treason.\n\nTogether they must gather twelve Providence Cards—the keys to the cure. But as the stakes heighten and their undeniable attraction intensifies, Elspeth is forced to face her darkest secret yet: the Nightmare is slowly taking over her mind. And she might not be able to stop him.',
+                child: Text(widget.description,
                   style: GoogleFonts.inter(
                     textStyle: TextStyle(
                       color: Colors.black,
@@ -259,19 +272,64 @@ class _Screen2State extends State<Screen2> {
               ),
               Container(
                 width: 450.w,
-                height: 100.h,
+                height: 60.h,
                 decoration: ShapeDecoration(
-                    color: Colors.black,
+                    color: Colors.white,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.only(
                             topRight: Radius.circular(10.r),
                             topLeft: Radius.circular(10.r)))),
-                child: CircleAvatar(radius: 9.r,),
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 20),
+                  child: Row(
+                    children: [
+                      CircleAvatar(radius: 30.r,backgroundColor: Colors.white,
+                          child: SizedBox(width: 30.w,height: 30.h,
+                              child: Image.asset("assets/c.png"))),
+                      SizedBox(width: 25.w,),
+
+
+                      Container(
+                        width: 250,
+                        height: 52,
+                        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 16),
+                        decoration: ShapeDecoration(
+                          color: Color(0xFF404066),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12.r),
+                          ),
+                          shadows: [
+                            BoxShadow(
+                              color: Color(0x26000000),
+                              blurRadius: 40.r,
+                              offset: Offset(0, 12),
+                              spreadRadius: 0,
+                            )
+                          ],
+                        ),
+                        child: Center(
+                          child: Text(
+                            'Buy Now',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 19.sp,
+                              fontFamily: 'Inter',
+                              fontWeight: FontWeight.w600,
+                              height: 0.08,
+                            ),
+                          ),
+                        ),
+                      )
+                    ],
+                  ),
+                ),
               )
             ],
-          ),
+    )
+
+),
         ),
-      ),
+
     );
   }
 }
